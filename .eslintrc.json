@@ -19,9 +19,7 @@
             ]
           }
         ],
-        "max-len": ["error", {
-          "code": 500
-        }]
+        "no-useless-escape": "off"
       }
     },
     {

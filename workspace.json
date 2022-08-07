@@ -1,154 +1,211 @@
 {
-  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
-  "version": 2,
-  "projects": {
-    "api-email-queuing-service": {
-      "root": "packages/api/email-queuing-service",
-      "sourceRoot": "packages/api/email-queuing-service/src",
-      "projectType": "application",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/node:webpack",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/packages/api/email-queuing-service",
-            "main": "packages/api/email-queuing-service/src/main.ts",
-            "tsConfig": "packages/api/email-queuing-service/tsconfig.app.json",
-            "assets": ["packages/api/email-queuing-service/src/assets"]
-          },
-          "configurations": {
-            "production": {
-              "optimization": true,
-              "extractLicenses": true,
-              "inspect": false,
-              "fileReplacements": [
-                {
-                  "replace": "packages/api/email-queuing-service/src/environments/environment.ts",
-                  "with": "packages/api/email-queuing-service/src/environments/environment.prod.ts"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "executor": "@nrwl/node:node",
-          "options": {
-            "buildTarget": "api-email-queuing-service:build"
-          },
-          "configurations": {
-            "production": {
-              "buildTarget": "api-email-queuing-service:build:production"
-            }
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["packages/api/email-queuing-service/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/packages/api/email-queuing-service"],
-          "options": {
-            "jestConfig": "packages/api/email-queuing-service/jest.config.ts",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
-    "api-template-service": {
-      "root": "packages/api/template-service",
-      "sourceRoot": "packages/api/template-service/src",
-      "projectType": "application",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/node:webpack",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/packages/api/template-service",
-            "main": "packages/api/template-service/src/main.ts",
-            "tsConfig": "packages/api/template-service/tsconfig.app.json",
-            "assets": ["packages/api/template-service/src/assets"]
-          },
-          "configurations": {
-            "production": {
-              "optimization": true,
-              "extractLicenses": true,
-              "inspect": false,
-              "fileReplacements": [
-                {
-                  "replace": "packages/api/template-service/src/environments/environment.ts",
-                  "with": "packages/api/template-service/src/environments/environment.prod.ts"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "executor": "@nrwl/node:node",
-          "options": {
-            "buildTarget": "api-template-service:build"
-          },
-          "configurations": {
-            "production": {
-              "buildTarget": "api-template-service:build:production"
-            }
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["packages/api/template-service/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/packages/api/template-service"],
-          "options": {
-            "jestConfig": "packages/api/template-service/jest.config.ts",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
-    "lib-event-interfaces": {
-      "root": "packages/lib/event-interfaces",
-      "sourceRoot": "packages/lib/event-interfaces/src",
-      "projectType": "library",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/js:tsc",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/packages/lib/event-interfaces",
-            "main": "packages/lib/event-interfaces/src/index.ts",
-            "tsConfig": "packages/lib/event-interfaces/tsconfig.lib.json",
-            "assets": ["packages/lib/event-interfaces/*.md"]
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["packages/lib/event-interfaces/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/packages/lib/event-interfaces"],
-          "options": {
-            "jestConfig": "packages/lib/event-interfaces/jest.config.ts",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
-    "lib-models": "packages/lib/models"
-  }
+	"$schema": "./node_modules/nx/schemas/workspace-schema.json",
+	"version": 2,
+	"projects": {
+		"api-email-queuing-service": {
+			"root": "packages/api/email-queuing-service",
+			"sourceRoot": "packages/api/email-queuing-service/src",
+			"projectType": "application",
+			"targets": {
+				"build": {
+					"executor": "@nrwl/node:webpack",
+					"outputs": ["{options.outputPath}"],
+					"options": {
+						"outputPath": "dist/packages/api/email-queuing-service",
+						"main": "packages/api/email-queuing-service/src/main.ts",
+						"tsConfig": "packages/api/email-queuing-service/tsconfig.app.json",
+						"assets": ["packages/api/email-queuing-service/src/assets"]
+					},
+					"configurations": {
+						"production": {
+							"optimization": true,
+							"extractLicenses": true,
+							"inspect": false,
+							"fileReplacements": [
+								{
+									"replace": "packages/api/email-queuing-service/src/environments/environment.ts",
+									"with": "packages/api/email-queuing-service/src/environments/environment.prod.ts"
+								}
+							]
+						}
+					}
+				},
+				"serve": {
+					"executor": "@nrwl/node:node",
+					"options": {
+						"buildTarget": "api-email-queuing-service:build"
+					},
+					"configurations": {
+						"production": {
+							"buildTarget": "api-email-queuing-service:build:production"
+						}
+					}
+				},
+				"lint": {
+					"executor": "@nrwl/linter:eslint",
+					"outputs": ["{options.outputFile}"],
+					"options": {
+						"lintFilePatterns": ["packages/api/email-queuing-service/**/*.ts"]
+					}
+				},
+				"test": {
+					"executor": "@nrwl/jest:jest",
+					"outputs": ["coverage/packages/api/email-queuing-service"],
+					"options": {
+						"jestConfig": "packages/api/email-queuing-service/jest.config.ts",
+						"passWithNoTests": true
+					}
+				}
+			},
+			"tags": []
+		},
+		"api-mailing-service": {
+			"root": "packages/api/mailing-service",
+			"sourceRoot": "packages/api/mailing-service/src",
+			"projectType": "application",
+			"targets": {
+				"build": {
+					"executor": "@nrwl/node:webpack",
+					"outputs": ["{options.outputPath}"],
+					"options": {
+						"outputPath": "dist/packages/api/mailing-service",
+						"main": "packages/api/mailing-service/src/main.ts",
+						"tsConfig": "packages/api/mailing-service/tsconfig.app.json",
+						"assets": ["packages/api/mailing-service/src/assets"]
+					},
+					"configurations": {
+						"production": {
+							"optimization": true,
+							"extractLicenses": true,
+							"inspect": false,
+							"fileReplacements": [
+								{
+									"replace": "packages/api/mailing-service/src/environments/environment.ts",
+									"with": "packages/api/mailing-service/src/environments/environment.prod.ts"
+								}
+							]
+						}
+					}
+				},
+				"serve": {
+					"executor": "@nrwl/node:node",
+					"options": {
+						"buildTarget": "api-mailing-service:build"
+					},
+					"configurations": {
+						"production": {
+							"buildTarget": "api-mailing-service:build:production"
+						}
+					}
+				},
+				"lint": {
+					"executor": "@nrwl/linter:eslint",
+					"outputs": ["{options.outputFile}"],
+					"options": {
+						"lintFilePatterns": ["packages/api/mailing-service/**/*.ts"]
+					}
+				},
+				"test": {
+					"executor": "@nrwl/jest:jest",
+					"outputs": ["coverage/packages/api/mailing-service"],
+					"options": {
+						"jestConfig": "packages/api/mailing-service/jest.config.ts",
+						"passWithNoTests": true
+					}
+				}
+			},
+			"tags": []
+		},
+		"api-template-service": {
+			"root": "packages/api/template-service",
+			"sourceRoot": "packages/api/template-service/src",
+			"projectType": "application",
+			"targets": {
+				"build": {
+					"executor": "@nrwl/node:webpack",
+					"outputs": ["{options.outputPath}"],
+					"options": {
+						"outputPath": "dist/packages/api/template-service",
+						"main": "packages/api/template-service/src/main.ts",
+						"tsConfig": "packages/api/template-service/tsconfig.app.json",
+						"assets": ["packages/api/template-service/src/assets"]
+					},
+					"configurations": {
+						"production": {
+							"optimization": true,
+							"extractLicenses": true,
+							"inspect": false,
+							"fileReplacements": [
+								{
+									"replace": "packages/api/template-service/src/environments/environment.ts",
+									"with": "packages/api/template-service/src/environments/environment.prod.ts"
+								}
+							]
+						}
+					}
+				},
+				"serve": {
+					"executor": "@nrwl/node:node",
+					"options": {
+						"buildTarget": "api-template-service:build"
+					},
+					"configurations": {
+						"production": {
+							"buildTarget": "api-template-service:build:production"
+						}
+					}
+				},
+				"lint": {
+					"executor": "@nrwl/linter:eslint",
+					"outputs": ["{options.outputFile}"],
+					"options": {
+						"lintFilePatterns": ["packages/api/template-service/**/*.ts"]
+					}
+				},
+				"test": {
+					"executor": "@nrwl/jest:jest",
+					"outputs": ["coverage/packages/api/template-service"],
+					"options": {
+						"jestConfig": "packages/api/template-service/jest.config.ts",
+						"passWithNoTests": true
+					}
+				}
+			},
+			"tags": []
+		},
+		"lib-event-interfaces": {
+			"root": "packages/lib/event-interfaces",
+			"sourceRoot": "packages/lib/event-interfaces/src",
+			"projectType": "library",
+			"targets": {
+				"build": {
+					"executor": "@nrwl/js:tsc",
+					"outputs": ["{options.outputPath}"],
+					"options": {
+						"outputPath": "dist/packages/lib/event-interfaces",
+						"main": "packages/lib/event-interfaces/src/index.ts",
+						"tsConfig": "packages/lib/event-interfaces/tsconfig.lib.json",
+						"assets": ["packages/lib/event-interfaces/*.md"]
+					}
+				},
+				"lint": {
+					"executor": "@nrwl/linter:eslint",
+					"outputs": ["{options.outputFile}"],
+					"options": {
+						"lintFilePatterns": ["packages/lib/event-interfaces/**/*.ts"]
+					}
+				},
+				"test": {
+					"executor": "@nrwl/jest:jest",
+					"outputs": ["coverage/packages/lib/event-interfaces"],
+					"options": {
+						"jestConfig": "packages/lib/event-interfaces/jest.config.ts",
+						"passWithNoTests": true
+					}
+				}
+			},
+			"tags": []
+		},
+		"lib-models": "packages/lib/models"
+	}
 }

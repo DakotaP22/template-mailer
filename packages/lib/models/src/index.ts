@@ -1,1 +1,1 @@
-export * from './lib/TemplateSchema';
+export * from './lib/Template';
